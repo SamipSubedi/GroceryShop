@@ -20,40 +20,37 @@ class API:
     make_get_request('https://fakestoreapi.com/products')
     response = make_get_request('https://fakestoreapi.com/products')
     t = response.json()
-    new_dict = {item['id']:item for item in t}
-    
+    #new_dict = {item['id']:item for item in t}
+    new_dict = t 
+
     for item in new_dict:
-        rating = new_dict.get(item).get('rating').get('rate')
-        count = new_dict.get(item).get('rating').get('count')
-        new_dict.get(item)['rate'] = rating
-        new_dict.get(item)['count'] = count
-        del new_dict.get(item)['rating']
-    
-    print(new_dict)
+        item['rate'] = item['rating']['rate']
+        item['count']= item['rating']['count']
+    #print(new_dict)
     
     conn = sqlite3.connect('store.db')
     c = conn.cursor()
     c.execute("""CREATE TABLE Product (
             id INT,
-            Title TEXT,
-            Price INT,
-            Description TEXT,
-            Category TEXT,
-            IMAGE BLOB,
-            RATE REAL,
-            COUNT INT
+            title TEXT,
+            price INT,
+            description TEXT,
+            category TEXT,
+            image TEXT,
+            rate INT,
+            count INT
             )""")
     
-    product_values = (new_dict)
+    product_values = new_dict
         
     
-    with sqlite3.connect("store.db") as connection:
-        cursor = connection.cursor()
-        cursor.executemany("INSERT INTO Product VALUES(?,?,?,?,?,?,?,?)", (product_values))
-        print(cursor.execute("SELECT * from Product;").fetchall())
-        cursor.execute("SELECT * from Product;")
-        for row in cursor.fetchall():
-            print(row)
+        
+    c.executemany("INSERT INTO Product VALUES(:id,:title,:price,:description,:category,:image,:rate,:count)", product_values)
+    conn.commit()
+    print(c.execute("SELECT * from Product;").fetchall())
+    c.execute("SELECT * from Product;")
+    for row in c.fetchall():
+        print(row)
 
 
         
