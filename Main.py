@@ -18,14 +18,16 @@ def make_get_request(url):
         return response
 
 
-make_get_request('https://fakestoreapi.com/products')
 response = make_get_request('https://fakestoreapi.com/products')
 t = response.json()
-
 new_dict = t
-for item in new_dict:
-    item['rate'] = item['rating']['rate']
-    item['count'] = item['rating']['count']
+
+def extract():
+    for item in new_dict:
+        item['rate'] = item['rating']['rate']
+        item['count'] = item['rating']['count']
+extract()
+
 # Creating Table
 conn = sqlite3.connect('store.db')
 conn.row_factory = sqlite3.Row
@@ -71,7 +73,12 @@ c = next((i for i in items if i['id'] == productslist))
 total = c['price'] * quantity
 print(f"Your Total price is : {str(total)}")
 
-trial = c['id'], c['title'],  total, quantity
+trial = trial = 'name: ' + name,  "id: " + str(c['id']), 'title: ' + c['title'],  \
+'total: ' +  str(total), 'Quantity: ' + str(quantity)
 
-with open('my_file_2.txt', 'w') as f:
-    f.write(str(trial))
+
+def write_bill():
+    with open('bill.txt', 'w') as f:
+        for line in trial:
+            f.write(str(line)+'\n')
+write_bill()
