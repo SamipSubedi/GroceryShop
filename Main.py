@@ -1,9 +1,10 @@
 import json
+from unicodedata import name
 import requests
 from requests.exceptions import HTTPError
 import sqlite3
 
-class API:
+class Main:
     requests.get('https://fakestoreapi.com/products')
     def make_get_request(url):
         try:
@@ -28,9 +29,12 @@ class API:
         item['count']= item['rating']['count']
     #print(new_dict)
     
+    #Creating Table
     conn = sqlite3.connect('store.db')
     c = conn.cursor()
-    c.execute("""CREATE TABLE Product (
+    c.executescript(
+        """DROP TABLE IF EXISTS Product;
+            CREATE TABLE Product (
             id INT,
             title TEXT,
             price INT,
@@ -39,18 +43,36 @@ class API:
             image TEXT,
             rate INT,
             count INT
-            )""")
+            );
+        """)
     
-    product_values = new_dict
-        
-    
-        
+    #ADDING VALUE TO TABLE   
+    product_values = new_dict  
     c.executemany("INSERT INTO Product VALUES(:id,:title,:price,:description,:category,:image,:rate,:count)", product_values)
     conn.commit()
-    print(c.execute("SELECT * from Product;").fetchall())
+    c.execute("SELECT * from Product;").fetchall()
     c.execute("SELECT * from Product;")
+    
+    print("WELCOME TO GROCERY SHOP")
+    name = input("Enter your name: ")
+    print("___________________________________________________________________________________________")
+    print("\n Hello " +name+ " HERE IS THE ITEM WE HAVE AVAILABLE ON THE SHOP")
+    print("\n ___________________________________________________________________________________________")
     for row in c.fetchall():
-        print(row)
+        t_id, t_title, t_price, t_description, t_category, t_image, t_rate, t_count = row 
+        print(f" id : {t_id} || title:  {t_title } || price: {t_price} || \n desc:  {t_description} \
+            || \n category: {t_category} || \n imagelink: {t_image} || \n rate: {t_rate} || quantity: {t_count}")
+    
+    pid = int(input("Enter product id: "))
+    quantity = int(input("Enter product quantity you want to buy"))
+    
+       
+    
+
+   
+
+
+
 
 
         
