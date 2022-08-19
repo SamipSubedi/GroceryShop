@@ -1,6 +1,6 @@
-from Database import *
+from Shop import *
+from Shop import Shop
 
-print("WELCOME TO GROCERY SHOP")
 name = input("Enter your name: ")
 print("___________________________________________________________________________________________")
 print("\n Hello " + name + " HERE IS THE ITEM WE HAVE AVAILABLE ON THE SHOP")
@@ -19,4 +19,3 @@ print(f"Your Total price is : {str(total)}")
 
 trial = 'name: ' + name,  "id: " + str(c['id']), 'title: ' + c['title'],  \
     'total: ' + str(total), 'Quantity: ' + str(quantity)
-

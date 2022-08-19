@@ -1,5 +1,6 @@
 from User import *
 
+
 def write_bill():
     with open('bill.txt', 'w') as f:
         for line in trial:

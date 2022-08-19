@@ -28,5 +28,3 @@ conn.commit()
 c.execute("SELECT * from Product;")
 values = c.fetchall()
 items = [{k: item[k] for k in item.keys()}for item in values]
-
-

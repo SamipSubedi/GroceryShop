@@ -1,6 +1,7 @@
 import requests
 from requests.exceptions import HTTPError
 
+
 def make_get_request(url):
     try:
         response = requests.get(url)
@@ -13,11 +14,14 @@ def make_get_request(url):
     else:
         print('Successful get request', response)
         return response
+
+
 make_get_request('https://fakestoreapi.com/products')
 
 response = make_get_request('https://fakestoreapi.com/products')
 t = response.json()
 new_dict = t
+
 
 def extract():
     for item in new_dict:
