@@ -1,6 +1,10 @@
-Projectname : [Your Wish  whatever you decide to call it]Idea: The idea is to create a simple fake shop where in products can be purchased by users  based on the availability of products. Once a purchase is made, shopkeeper needs to prepare a simple bill calculating the  total expenses.Project Requirements:
+Projectname : [Your Wish  whatever you decide to call it]Idea: The idea is to create a simple fake shop where in products can be 
+purchased by users  based on the availability of products. Once a purchase is made, shopkeeper needs to prepare a 
+simple bill calculating the  total expenses.Project Requirements:
 1. Fetch a list of items available for a typical shop through an external api like https://fakestoreapi.com/
 2. Store the items in a database. For simplicity let's stick to sqlite. If you want to explore pgsql or mysql install through IT
 3. System should take inputs from user on the products to make a purchase along with quantities
 4. It should calculate the total expenses with Tax included
-5. Finally, it should export it into a text file with proper formatting as a billConcepts to be covered:APIs and working with HTTPDatabase in PythonOOP and user inputBasic manipulations Database retrievalsFile and IOExceptionsIt should be done individually and commits should be made on a separate git repo. The repo must be shared here.
+5. Finally, it should export it into a text file with proper formatting as a billConcepts to be covered:APIs and
+ working with HTTPDatabase in PythonOOP and user inputBasic manipulations Database retrievalsFile and IOExceptions
+ It should be done individually and commits should be made on a separate git repo. The repo must be shared here.

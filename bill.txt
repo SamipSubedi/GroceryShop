@@ -1,5 +1,6 @@
-name: samip 
+Name: subarna
 id: 2
-title: Mens Casual Premium Slim Fit T-Shirts 
-total: 44.6
+Title: Mens Casual Premium Slim Fit T-Shirts 
+Total: 44.6
+After Tax: 49.06
 Quantity: 2
