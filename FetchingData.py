@@ -1,10 +1,11 @@
+from pickle import FALSE
 import requests
 from requests.exceptions import HTTPError
 
 
 def make_get_request(url):
     try:
-        response = requests.get(url)
+        response = requests.get(url, verify= False)
         # if the response was successful, no Exception will be raised
         response.raise_for_status()
     except HTTPError as http_err:
