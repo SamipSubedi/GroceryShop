@@ -32,7 +32,8 @@ def FetchItems():
     # ADDING VALUE TO TABLE
     product_values = new_dict
     c.executemany(
-        "INSERT INTO Product VALUES(:id,:title,:price,:description,:category,:image,:rate,:count)", product_values)
+        "INSERT INTO Product VALUES(:id,:title,:price,:description,:category,:image,:rate,:count)", 
+        product_values)
     conn.commit()
 
 
