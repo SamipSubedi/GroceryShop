@@ -1,4 +1,4 @@
-Name: samip
+Name: samip.s
 id: 2
 Title: Mens Casual Premium Slim Fit T-Shirts 
 Total: 44.6
