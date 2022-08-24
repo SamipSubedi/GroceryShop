@@ -1,5 +1,6 @@
+from unicodedata import name
 from User import User
-from Order import Order
+from Cart import Cart
 from Database import FetchItems
 
 class Shops:
@@ -39,7 +40,7 @@ class Shops:
                         check = True
                         quantity = int(
                             input("Enter the quantity of the product you want to buy: "))       
-                        self.order_list.append(Order(quantity= quantity, product = product_id))
+                        self.order_list.append(Cart(quantity= quantity, product = product_id))
                         print("\n")
                         more_items = input("Enter yes to buy more product: ")
                         if more_items == "yes":
@@ -63,9 +64,9 @@ class Shops:
         
         final_text = ""
         for index, item in enumerate(cart):
-            final_text = final_text + "\n" +str(index+1) + "\nitem: " + item[1].get('title') + "\nquantity: " +  str(item[0]) + "\nprice: " + str(item[1].get('price'))
-        
-        
+            final_text = final_text + "\n" +str(index+1) + "\nitem: " + item[1].get('title') + \
+                "\nquantity: " +  str(item[0]) + "\nprice: " + str(item[1].get('price'))
+           
         final_bill = 'Name: ' + user_name,  '\nDetails:' + final_text + \
             '\n\nTotal: ' + str(total), 'After Tax: ' + \
             str(round(total + tax))
@@ -87,6 +88,9 @@ class Shops:
 items = FetchItems()
 
 s1 = Shops('Grocery', items)
+
+print("Welcome to " + s1.name + " Shop")
+
 user_name = input("Enter your name: ")
 user = User(user_name)
 print("___________________________________________________________________________________________")

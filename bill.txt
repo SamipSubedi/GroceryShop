@@ -2,13 +2,13 @@ Name: samip
 
 Details:
 1
+item: Mens Casual Premium Slim Fit T-Shirts 
+quantity: 2
+price: 22.3
+2
 item: Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops
 quantity: 1
 price: 109.95
-2
-item: Pierced Owl Rose Gold Plated Stainless Steel Double
-quantity: 1
-price: 10.99
 
-Total: 120.94
-After Tax: 133
+Total: 154.55
+After Tax: 170
