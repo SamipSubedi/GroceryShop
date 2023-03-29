@@ -27,7 +27,7 @@ def FetchItems():
     response = s.make_get_request('https://fakestoreapi.com/products')
     t = response.json()
     new_dict = s.extract(t)
-
+   
 
     # ADDING VALUE TO TABLE
     product_values = new_dict
@@ -41,4 +41,5 @@ def FetchItems():
     values = c.fetchall()
     items = [{k: item[k] for k in item.keys()}for item in values]
     return items
+
 
